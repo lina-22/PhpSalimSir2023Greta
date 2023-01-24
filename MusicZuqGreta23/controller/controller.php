@@ -66,7 +66,7 @@ switch ($action) {
 
         // Mission 2 : Faire en sorte qu’un utilisateur puisse s’inscrire en tant que client. 
     case "traitementInscription":
-        // idClient/1prenom	/2nom	/6email	/7mdp/8cofrm mdp	/3adresse	/4ville	/5codePostal
+        // id/1prenom	/2nom	/6email	/7mdp/8cofrm mdp	/3adresse	/4ville	/5codePostal
 
         $prenom = filter_var($_POST["prenom"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         echo "test here traitementInscription";

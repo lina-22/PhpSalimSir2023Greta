@@ -28,18 +28,16 @@ ob_start(); ?>
                 </div>
                 <hr>
                 <div class="my-2 col-lg-12 col-md-8">
-                    <label for="inputNom" style="color:white;">Adresse* </label>
-                    <input minlength="8" required name="adresse" id="inputAdresse" type="text" class="form-control">
+                    <label for="inputEmail" style="color:white;">Email* </label>
+                    <input required name="email" id="inputEmail" type="email" class="form-control">
                 </div>
-
                 <div class="my-2 col-lg-12 col-md-8">
-                    <label for="inputNom" style="color:white;">Ville* </label>
-                    <input minlength="2" required name="ville" id="inputVille" type="text" class="form-control">
+                    <label for="inputMDP1" style="color:white;">Mot de passe* </label>
+                    <input minlength="8" required name="mdp1" id="inputMDP1" type="password" class="form-control">
                 </div>
-
                 <div class="my-2 col-lg-12 col-md-8">
-                    <label for="inputNom" style="color:white;">Code Postal* </label>
-                    <input minlength="4" required name="codePostal" id="inputCP" type="text" class="form-control">
+                    <label for="inputMDP2" style="color:white;">Confirmation Mot de passe* </label>
+                    <input minlength="8" required name="mdp2" id="inputMDP2" type="password" class="form-control">
                 </div>
 
                 <hr>
