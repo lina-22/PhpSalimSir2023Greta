@@ -1,5 +1,5 @@
-88% of storage used … You can clean up space or get more storage for Drive, Gmail, and Google Photos.
 <?php
+
 /** 
  * Classe d'accès aux données. 
  
