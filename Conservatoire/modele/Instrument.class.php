@@ -28,4 +28,44 @@ class Instrument
         $this->nom = $nom;
         return $this;
     }
+
+    /**
+     * Get the value of reference
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * Set the value of reference
+     *
+     * @return  self
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateAchat
+     */
+    public function getDateAchat()
+    {
+        return $this->dateAchat;
+    }
+
+    /**
+     * Set the value of dateAchat
+     *
+     * @return  self
+     */
+    public function setDateAchat($dateAchat)
+    {
+        $this->dateAchat = $dateAchat;
+
+        return $this;
+    }
 }

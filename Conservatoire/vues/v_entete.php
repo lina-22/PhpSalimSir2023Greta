@@ -11,7 +11,7 @@
 
 </head>
 
-<body style="background-color: black;">
+<body>
 
 	<div id="bandeau">
 		<!-- Images En-tête -->
@@ -29,11 +29,6 @@
 		<!-- Images En-tête -->
 
 	</div>
-
-
 	<div id="contenu1">
-
-
-
 
 	</div>

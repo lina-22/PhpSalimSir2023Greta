@@ -1,5 +1,8 @@
 <div id="contenu">
     <?php
+
+    echo "Salut ";
+    //var_dump($lesCours);
     foreach ($lesCours as $unCours) {
         $numero = $unCours->IdCours;
         echo "Cours <b>$numero</b> <br>";

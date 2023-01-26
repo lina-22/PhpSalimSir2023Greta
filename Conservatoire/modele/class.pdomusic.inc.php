@@ -3,7 +3,7 @@
 class PdoMusic
 {
 	private static $serveur = 'mysql:host=localhost';
-	private static $bdd = 'dbname=Conservatoire';
+	private static $bdd = 'dbname=conservatoire';
 	private static $user = 'root';
 	private static $mdp = 'root';
 	private static $monPdo;
