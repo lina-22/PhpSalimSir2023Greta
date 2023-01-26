@@ -29,7 +29,6 @@ class SeanceDAO
     }
 
 
-
     public function getSeance($unIdSeance)
     {
 
