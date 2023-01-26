@@ -1,17 +1,17 @@
 <?php
 class Jour
 {
-    private $idJour;
+    private $jour;
 
 
-    public function getIdJour()
+    public function getjour()
     {
-        return $this->idJour;
+        return $this->jour;
     }
 
-    public function setIdJour($idJour)
+    public function setJour($jour)
     {
-        $this->idJour = $idJour;
+        $this->jour = $jour;
         return $this;
     }
 }

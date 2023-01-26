@@ -15,7 +15,7 @@
 
 	<div id="bandeau">
 		<!-- Images En-tête -->
-		<img src="images/firstImg.jpeg" alt="conservatoire" title="conservatoire" />
+		<img src="images/conservatoire.jpg" alt="conservatoire" title="conservatoire" />
 	</div>
 	<!--  Menu haut-->
 	<ul id="menu">
@@ -29,6 +29,11 @@
 		<!-- Images En-tête -->
 
 	</div>
+
+
 	<div id="contenu1">
+
+
+
 
 	</div>

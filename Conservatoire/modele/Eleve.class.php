@@ -1,20 +1,20 @@
 <?php
 class Eleve
 {
-    private $idEleve;
+    private $id;
     private $nom;
     private $prenom;
     private $tel;
-    private $adresserue;
-    private $adressenum;
+    private $mail;
+    private $adresse;
 
 
     /**
      * Get the value of idEleve
      */
-    public function getIdEleve()
+    public function getId()
     {
-        return $this->idEleve;
+        return $this->id;
     }
 
     /**
@@ -22,9 +22,9 @@ class Eleve
      *
      * @return  self
      */
-    public function setIdEleve($idEleve)
+    public function setId($id)
     {
-        $this->idEleve = $idEleve;
+        $this->id = $id;
         return $this;
     }
 
@@ -61,24 +61,34 @@ class Eleve
     }
 
 
-    public function getAdresserue()
+    public function getMail()
     {
-        return $this->adresserue;
+        return $this->mail;
     }
 
-    public function setAdresserue($adresserue)
+    public function setMail($mail)
     {
-        $this->adresserue = $adresserue;
+        $this->mail = $mail;
         return $this;
     }
 
-    public function setAdressenum($adressenum)
+    /**
+     * Get the value of adresse
+     */
+    public function getAdresse()
     {
-        $this->adressenum = $adressenum;
-        return $this;
+        return $this->adresse;
     }
-    public function getAddressenum()
+
+    /**
+     * Set the value of adresse
+     *
+     * @return  self
+     */
+    public function setAdresse($adresse)
     {
-        return $this->adressenum;
+        $this->adresse = $adresse;
+
+        return $this;
     }
 }

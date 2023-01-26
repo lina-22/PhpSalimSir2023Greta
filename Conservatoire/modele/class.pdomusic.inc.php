@@ -1,5 +1,16 @@
 <?php
 
+/** 
+ * Classe d'accès aux données. 
+ 
+ * Utilise les services de la classe PDO
+ * pour l'application Ziqmu.
+ * Les attributs sont tous statiques,
+ * les 4 premiers pour la connexion
+ * $monPdo de type PDO 
+ * $monPdoMusic qui contiendra l'unique instance de la classe
+ */
+
 class PdoMusic
 {
 	private static $serveur = 'mysql:host=localhost';
@@ -42,9 +53,4 @@ class PdoMusic
 
 		return PdoMusic::$monPdo;
 	}
-}
-
-
-class Conservatoire
-{
 }
