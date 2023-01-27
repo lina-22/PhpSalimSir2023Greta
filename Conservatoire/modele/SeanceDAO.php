@@ -7,7 +7,6 @@ class SeanceDAO
     {
 
         try {
-
             $cours = array();
 
             $req = "Select * from seance";

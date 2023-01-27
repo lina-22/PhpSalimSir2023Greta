@@ -29,7 +29,6 @@ switch ($action) {
 
         $lesCours = SeanceDAO::getLesSeances();
 
-
         include("vues/v_cours.php");
 
         break;
