@@ -4,25 +4,28 @@ class AdherentDAO
 {
 
 
-    public function creerAdherent($unAdherent)
+    public function creerAdherent(Adherent $adherent)
     {
 
-        require_once("modele/class.pdomusic.inc.php");
+
 
 
         try {
 
 
-            $req = "insert into eleve(id,nom,prenom,tel) values(null,'" . htmlspecialchars($unAdherent->getNom()) . "','" . htmlspecialchars($unAdherent->getPrenom()) . "','" . htmlspecialchars($unAdherent->getTel()) . "')";
+            $req = "insert into eleve(nom,prenom,tel) values(:nom,:prenom,:tel)";
+
 
 
             $monPdoMusic = PdoMusic::getPdoMusic();
 
 
             $rs = $monPdoMusic::getMonPdo()->prepare($req);
-
-
-            $rs->execute();
+            $rs->bindValue(":nom", $adherent->getNom());
+            $rs->bindValue(":prenom", $adherent->getPrenom());
+            $rs->bindValue(":tel", $adherent->getTel());
+            $resultat = $rs->execute();
+            return $resultat;
         } catch (PDOException $e) {
 
             echo 'Échec lors de la connexion : ' . $e->getMessage();
@@ -30,68 +33,28 @@ class AdherentDAO
     }
 
 
-    public function getIdAdherent($unAdherent)
+    public function getAdherent(Adherent $adherent)
     {
 
-        require_once("modele/class.pdomusic.inc.php");
-
-        require_once("Business/Adherent.php");
-
-        try {
-
-            $nom =    $unAdherent->getNom();
-            $prenom =    $unAdherent->getPrenom();
-            $tel =    $unAdherent->getTel();
-
-            $req = "SELECT id from eleve where NOM = '$nom' and PRENOM = '$prenom' and TEL = '$tel'  ";
-
-            echo $req;
-
-            $monPdoMusic = PdoMusic::getPdoMusic();
-
-            $rs = $monPdoMusic::getMonPdo()->prepare($req);
-
-            $rs->setFetchMode(PDO::FETCH_OBJ);
-
-            $rs->execute();
-
-            $monAdherent = $rs->fetch();
-
-
-            return $monAdherent->id;
-        } catch (PDOException $e) {
-
-            echo 'Échec lors de la connexion : ' . $e->getMessage();
-        }
-    }
-
-    public function getAdherent($unIdAdherent)
-    {
-
-        require_once("modele/class.pdomusic.inc.php");
-
-        require_once("Business/Adherent.php");
 
         try {
 
 
 
-            $req = "SELECT nomAdherent, prenomAdherent,telAdherent from Adherent where idAdherent = $unIdAdherent";
+            $req = "SELECT idEleve from eleve where NOM = :nom and PRENOM = :prenom and TEL = :tel  ";
 
-            echo $req;
 
             $monPdoMusic = PdoMusic::getPdoMusic();
 
+
             $rs = $monPdoMusic::getMonPdo()->prepare($req);
-
-            $rs->setFetchMode(PDO::FETCH_OBJ);
-
+            $rs->bindValue(":nom", $adherent->getNom());
+            $rs->bindValue(":prenom", $adherent->getPrenom());
+            $rs->bindValue(":tel", $adherent->getTel());
             $rs->execute();
+            $resultat = $rs->fetch(PDO::FETCH_OBJ);
 
-            $monAdherent = $rs->fetch();
-
-
-            return $monAdherent;
+            return $resultat;
         } catch (PDOException $e) {
 
             echo 'Échec lors de la connexion : ' . $e->getMessage();

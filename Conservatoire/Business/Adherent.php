@@ -2,45 +2,95 @@
 
 class Adherent
 {
+    private $idEleve;
+    private $nom;
+    private $prenom;
+    private $tel;
 
-    private $idAdherent;
-    private $nomAdherent;
-    private $prenomAdherent;
-    private $telAdherent;
-
-
-
-    public function __construct($unNomAdherent, $unPrenomAdherent, $unTelAdherent)
+    function __construct($nom, $prenom, $tel)
     {
-
-
-        $this->nomAdherent = $unNomAdherent;
-        $this->prenomAdherent = $unPrenomAdherent;
-        $this->telAdherent = $unTelAdherent;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->tel = $tel;
     }
 
-    public function getIdAdherent()
+    /**
+     * Get the value of idEleve
+     */
+    public function getIdEleve()
     {
-
-        return ($this->idAdherent);
+        return $this->idEleve;
     }
 
+    /**
+     * Set the value of idEleve
+     *
+     * @return  self
+     */
+    public function setIdEleve($idEleve)
+    {
+        $this->idEleve = $idEleve;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nom
+     */
     public function getNom()
     {
-
-        return ($this->nomAdherent);
+        return $this->nom;
     }
 
+    /**
+     * Set the value of nom
+     *
+     * @return  self
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
 
+        return $this;
+    }
+
+    /**
+     * Get the value of prenom
+     */
     public function getPrenom()
     {
-
-        return ($this->prenomAdherent);
+        return $this->prenom;
     }
 
+    /**
+     * Set the value of prenom
+     *
+     * @return  self
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tel
+     */
     public function getTel()
     {
+        return $this->tel;
+    }
 
-        return ($this->telAdherent);
+    /**
+     * Set the value of tel
+     *
+     * @return  self
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
     }
 }

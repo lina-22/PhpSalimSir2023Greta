@@ -7,6 +7,12 @@ if (!isset($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
 }
 
+require_once("modele/InscrireDAO.php");
+require_once("modele/class.pdomusic.inc.php");
+require_once("Business/Seance.php");
+require_once("modele/SeanceDAO.php");
+require_once("Business/Adherent.php");
+require_once("modele/AdherentDAO.php");
 //if ($action != "pdfReservation") {
 include("vues/v_entete.php");
 //}
@@ -50,15 +56,11 @@ switch ($action) {
 
     case 'validerInscription':
 
-        require_once("modele/class.pdomusic.inc.php");
-        require_once("Business/Seance.php");
-        require_once("modele/SeanceDAO.php");
-        require_once("Business/Adherent.php");
-        require_once("modele/AdherentDAO.php");
 
-        $uneSeanceDAO = new SeanceDAO();
 
-        $unAdherentDAO = new AdherentDAO();
+        //$uneSeanceDAO = new SeanceDAO();
+
+        $adherentDAO = new AdherentDAO();
 
 
         $unIdSeance = $_REQUEST["numero"];
@@ -68,10 +70,17 @@ switch ($action) {
         $prenom = $_REQUEST["prenom"];
 
         $tel =  $_REQUEST["tel"];
-
+        $idCours = $_POST["numero"];
         // construire  un adhérent
 
+        $adherent = new Adherent($nom, $prenom, $tel);
+        $unAdherentDAO = new AdherentDAO();
+
         // ajouter cet adhérent dans la base
+        $resultat = $unAdherentDAO->creerAdherent($adherent);
+        $resultat = $unAdherentDAO->getAdherent($adherent);
+        $inscrireDAO = new InscrireDAO();
+        $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, "2023-01-27");
 
 
         // récupérer l'identifiant de l'adhérent
@@ -87,6 +96,18 @@ switch ($action) {
 
 
     case 'voirInscriptions':
+
+        $inscrireDAO = new InscrireDAO();
+
+        //var_dump($inscrireDAO);
+
+        require_once("modele/class.pdomusic.inc.php");
+        require_once("modele/SeanceDAO.php");
+
+        $lesCours = SeanceDAO::getLesSeances();
+
+        include("vues/v_voirInscription.php");
+
 
 
         break;
