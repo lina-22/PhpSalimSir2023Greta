@@ -80,7 +80,7 @@ switch ($action) {
         $resultat = $unAdherentDAO->creerAdherent($adherent);
         $resultat = $unAdherentDAO->getAdherent($adherent);
         $inscrireDAO = new InscrireDAO();
-        $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, "2023-01-27");
+        $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, "2023-01-29");
 
 
         // récupérer l'identifiant de l'adhérent
@@ -97,24 +97,33 @@ switch ($action) {
 
     case 'voirInscriptions':
 
-        $inscrireDAO = new InscrireDAO();
+        // instrument et  inscrire table de base de donne jointure il faut faire
+
 
         //var_dump($inscrireDAO);
 
         require_once("modele/class.pdomusic.inc.php");
         require_once("modele/SeanceDAO.php");
+        require_once("modele/InscrireDAO.php");
 
-        $lesCours = SeanceDAO::getLesSeances();
 
+
+        // $lesCours = SeanceDAO::getLesSeances();
+        $lesInscriptions = InscrireDAO::getLesInscriptions();
+        //var_dump($lesInscriptions);
         include("vues/v_voirInscription.php");
-
 
 
         break;
 
 
     case 'pdfInscription':
+        require_once("fpdf/fpdf.php");
+        $lesInscriptions = new FPDF();
+        //var_dump($lesInscriptions);
+        include("vues/v_voirInscription.php");
 
+        //index.php?action=pdfInscription&numInscription=0
         break;
 
     case 'suppInscription':

@@ -7,11 +7,7 @@ class AdherentDAO
     public function creerAdherent(Adherent $adherent)
     {
 
-
-
-
         try {
-
 
             $req = "insert into eleve(nom,prenom,tel) values(:nom,:prenom,:tel)";
 
