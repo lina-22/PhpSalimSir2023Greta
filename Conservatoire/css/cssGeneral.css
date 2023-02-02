@@ -7,8 +7,8 @@ html {
 img {
 
     border: 0;
-    width: 20%;
-    margin-left: 50px;
+    width: 100%;
+    margin-left: 10px;
 }
 
 
@@ -52,7 +52,7 @@ input[type="submit"] {
 }
 
 #bandeau {
-    padding-left: 200px;
+    padding-left: 20px;
 }
 
 #menu {

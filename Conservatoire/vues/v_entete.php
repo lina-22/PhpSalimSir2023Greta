@@ -11,19 +11,20 @@
 
 </head>
 
-<body>
+<body style="background-color: green;text-align:center;">
 
 	<div id="bandeau">
 		<!-- Images En-tête -->
-		<img src="images/conservatoire.jpg" alt="conservatoire" title="conservatoire" />
+		<img src="images/firstImg.jpeg" alt="conservatoire" title="conservatoire" style="width: 50%;margin-right:300px;" />
 	</div>
 	<!--  Menu haut-->
-	<ul id="menu">
-		<li><a href="index.php?action=accueil"> Accueil </a></li>
-		<li><a href="index.php?action=voirCours"> Voir le catalogue des cours</a></li>
-		<li><a href="index.php?action=voirInscriptions"> Voir les inscriptions</a></li>
-	</ul>
-
+	<div style="margin-left: 200px;">
+		<ul id="menu" style="background-color: green;text-align:center;">
+			<li><a href=" index.php?action=accueil"> Accueil </a></li>
+			<li><a href="index.php?action=voirCours"> Voir le catalogue des cours</a></li>
+			<li><a href="index.php?action=voirInscriptions"> Voir les inscriptions</a></li>
+		</ul>
+	</div>
 
 	<div id="contenu">
 		<!-- Images En-tête -->

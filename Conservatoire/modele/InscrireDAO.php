@@ -50,32 +50,32 @@ class InscrireDAO
     public function deleteInscrire($idCours, $IdEleve)
     {
         try {
-
-
-            $inscrires = array();
+            var_dump($idCours, $IdEleve);
             $req = "DELETE FROM inscrire WHERE idCours=:idCours and IdEleve= :idEleve";
-
-
             $monPdoMusic = PdoMusic::getPdoMusic();
-
-
             $rs = $monPdoMusic::getMonPdo()->prepare($req);
             $rs->bindValue(":idCours", $idCours);
             $rs->bindValue(":idEleve", $IdEleve);
-
-
-
-            $inscrires = $rs->execute();
-
-            return $inscrires;
-            //********************************************************** */
-            // ALTER TABLE inscrire
-            //ADD idInscrire int NOT NULL AUTO_INCREMENT PRIMARY KEY;
-            //var_dump("here...");
-
+            $resultat = $rs->execute();
+            return $resultat;
         } catch (PDOException $e) {
 
             echo 'Échec lors de la connexion : ' . $e->getMessage();
         }
     }
 }
+
+// public function deleteCategorie($id){
+//     try {
+//         $connex=$this->lePDO;
+//         $sql =$connex->prepare("DELETE FROM categorie WHERE idCategorie=:idCategorie");
+//         $sql->bindParam(":idCategorie",$id);
+//         $sql->execute();
+//         var_dump("here...");
+//         return true;
+
+//     } catch (PDOException $error) {
+//         echo $error->getMessage();
+//         return false;
+//     } 
+// }
