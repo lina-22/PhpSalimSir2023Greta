@@ -11,7 +11,7 @@
 
 </head>
 
-<body style="background-color: green;text-align:center;">
+<body style="background-color: #83f28f;text-align:center;">
 
 	<div id="bandeau">
 		<!-- Images En-tête -->
@@ -23,6 +23,8 @@
 			<li><a href=" index.php?action=accueil"> Accueil </a></li>
 			<li><a href="index.php?action=voirCours"> Voir le catalogue des cours</a></li>
 			<li><a href="index.php?action=voirInscriptions"> Voir les inscriptions</a></li>
+			<li><a href="index.php?action=voirInfoProf"> InfoProf</a></li>
+
 		</ul>
 	</div>
 

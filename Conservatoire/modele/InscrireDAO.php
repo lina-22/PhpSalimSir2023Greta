@@ -3,6 +3,9 @@
 class InscrireDAO
 {
 
+    //     mysql_query("INSERT INTO table 
+    // (dateposted) 
+    // VALUES ('$date')");
     static function  ajouterEleveCours($idCours, $IdEleve, $dateInscription)
     {
 
@@ -10,21 +13,16 @@ class InscrireDAO
         $sql->bindValue(":IDCOURS", $idCours);
         $sql->bindValue(":IDELEVE", $IdEleve);
         $sql->bindValue(":DATEINSCRIPTION", $dateInscription);
+        //var_dump($sql);
         $resultat = $sql->execute();
         return $resultat;
     }
 
-
-
-
-    //public static  function getLesSeances()
     public static  function getLesInscriptions()
     {
 
         try {
             $inscrires = array();
-
-            //$req = "Select * from inscrire";
             $req = "SELECT ele.nom, ele.prenom, ele.tel, ins.idCours,ins.IdEleve,ins.dateInscription
             FROM eleve as ele
             INNER JOIN inscrire as ins
@@ -64,18 +62,3 @@ class InscrireDAO
         }
     }
 }
-
-// public function deleteCategorie($id){
-//     try {
-//         $connex=$this->lePDO;
-//         $sql =$connex->prepare("DELETE FROM categorie WHERE idCategorie=:idCategorie");
-//         $sql->bindParam(":idCategorie",$id);
-//         $sql->execute();
-//         var_dump("here...");
-//         return true;
-
-//     } catch (PDOException $error) {
-//         echo $error->getMessage();
-//         return false;
-//     } 
-// }

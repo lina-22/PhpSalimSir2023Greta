@@ -8,11 +8,8 @@ class Cours
     private $dateInscription;
 
 
-
-
     public function __construct($unIdCours, $unIdEleve, $unDateInscription)
     {
-
 
         $this->idCours = $unIdCours;
         $this->IdEleve = $unIdEleve;

@@ -26,7 +26,7 @@
                     <td><?= $unCours->tranche ?></td>
                     <td><?= $unCours->IdCours ?></td>
                     <td><?= $unCours->numSeance ?></td>
-                    <td><?= '<a href="index.php?action=inscrire&numero=' . $numero . '">inscrire</a>' ?></td>;
+                    <td><?= '<a href="index.php?action=inscrire&numero=' . $numero . '">inscrire</a>' ?></td>
                 </tr>
             <?php
             }

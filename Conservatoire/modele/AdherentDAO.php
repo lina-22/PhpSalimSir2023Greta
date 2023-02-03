@@ -3,7 +3,6 @@
 class AdherentDAO
 {
 
-
     public function creerAdherent(Adherent $adherent)
     {
 
@@ -11,11 +10,7 @@ class AdherentDAO
 
             $req = "insert into eleve(nom,prenom,tel) values(:nom,:prenom,:tel)";
 
-
-
             $monPdoMusic = PdoMusic::getPdoMusic();
-
-
             $rs = $monPdoMusic::getMonPdo()->prepare($req);
             $rs->bindValue(":nom", $adherent->getNom());
             $rs->bindValue(":prenom", $adherent->getPrenom());
@@ -28,20 +23,15 @@ class AdherentDAO
         }
     }
 
-
     public function getAdherent(Adherent $adherent)
     {
 
 
         try {
 
-
-
             $req = "SELECT idEleve from eleve where NOM = :nom and PRENOM = :prenom and TEL = :tel  ";
 
-
             $monPdoMusic = PdoMusic::getPdoMusic();
-
 
             $rs = $monPdoMusic::getMonPdo()->prepare($req);
             $rs->bindValue(":nom", $adherent->getNom());

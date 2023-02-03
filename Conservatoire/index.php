@@ -16,7 +16,7 @@ include("vues/v_entete.php");
 switch ($action) {
 
     case 'accueil':
-        // Inclusion de l'en-t?te
+
         include("vues/v_accueil.php");
         break;
 
@@ -45,24 +45,31 @@ switch ($action) {
 
         $adherent = new Adherent($nom, $prenom, $tel);
         $unAdherentDAO = new AdherentDAO();
-
-        // ajouter cet adhérent dans la base
         $resultat = $unAdherentDAO->creerAdherent($adherent);
         $resultat = $unAdherentDAO->getAdherent($adherent);
         $inscrireDAO = new InscrireDAO();
-        $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, "2023-01-29");
+        $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, "2023-02-02");
+        // $inscrireDAO->ajouterEleveCours($idCours, $resultat->idEleve, date(DD - MM - YYYY));
         include("vues/v_confirmeInscription.php");
 
         break;
 
     case 'voirInscriptions':
-
-        // instrument et  inscrire table de base de donne jointure il faut faire
-        //var_dump($inscrireDAO);
         require_once("modele/class.pdomusic.inc.php");
         require_once("modele/SeanceDAO.php");
         require_once("modele/InscrireDAO.php");
-        // $lesCours = SeanceDAO::getLesSeances();
+        $lesInscriptions = InscrireDAO::getLesInscriptions();
+        //var_dump($lesInscriptions);
+        include("vues/v_voirInscription.php");
+
+        break;
+
+
+
+    case 'voirProf':
+        require_once("modele/class.pdomusic.inc.php");
+        require_once("modele/ProfDAO.php");
+        require_once("modele/InscrireDAO.php");
         $lesInscriptions = InscrireDAO::getLesInscriptions();
         //var_dump($lesInscriptions);
         include("vues/v_voirInscription.php");
@@ -80,45 +87,53 @@ switch ($action) {
         // $pdf->Output();
         $pdf->Output('D', 'filename.pdf');
         ob_end_flush();
-        include("vues/v_voirInscription.php");
-
-        //index.php?action=pdfInscription&numInscription=0
+        //include("vues/v_voirInscription.php");
         break;
 
     case 'suppInscription':
-
-        // $adherentDAO = new AdherentDAO();
-        //$unIdSeance = $_REQUEST["numero"];
         $idCours = $_GET["idCours"];
         $IdEleve = $_GET["idEleve"];
         //var_dump($IdEleve);
         $inscrireDAO = new InscrireDAO();
         $resultat = $inscrireDAO->deleteInscrire($idCours, $IdEleve);
-
         //var_dump($resultat);
         header("location:index.php?action=voirInscriptions");
         break;
 
 
-    case 'voirTableInscriptions':
+    case 'voirInfoProf':
 
         require_once("modele/class.pdomusic.inc.php");
-        require_once("modele/SeanceDAO.php");
-        require_once("modele/InscrireDAO.php");
+        require_once("modele/ProfDAO.php");
+        //require_once("modele/SeanceDAO.php");
+        $lesInfoProf = ProfDAO::getLesInfoProf();
+        //var_dump($lesInfoProf);
+        include("vues/v_prof.php");
+        break;
 
-        $lesInscriptions = InscrireDAO::getLesInscriptions();
 
-        include("vues/v_table.php");
+    case 'annulerCours':
+        require_once("modele/class.pdomusic.inc.php");
+        require_once("modele/ProfDAO.php");
+        $numSeance = $_GET["numSeance"];
+        $jour = $_GET["jour"];
+        //var_dump($jour);
+        $lesInfoProf = ProfDAO::annulerCours($numSeance, $jour);
+        // $profDAO = new ProfDAO();
+        //$resultat = $profDAO->annulerCours($numSeance, $jour);
+        //var_dump($resultat);
+        header("location:index.php?action=voirInfoProf");
+        break;
 
+
+
+    case 'prof22':
+
+        include("vues/v_profCoursDetails.php");
         break;
 }
 
+
+
+
 include("vues/v_pied.php");
-
-
-// case "deleteCategorie":
-//     $id = filter_var($_GET["idCategorie"], FILTER_SANITIZE_NUMBER_INT);
-//     $objectCategorieManager = new CategorieManager($lePDO);
-//     $objectCategorieManager->deleteCategorie($id);
-//     header("location:./?path=adminCategorie&action=categories");
-//     break;
